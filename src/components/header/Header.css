@@ -1,0 +1,9 @@
+.Header {
+    width: 100%;
+    padding: 16px 0;
+    background-color: #2b244d;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Fira Sans', sans-serif;
+}
