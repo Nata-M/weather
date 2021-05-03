@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ee9db1c5.chunk.css",
+    "main.js": "/static/js/main.d73a8500.chunk.js",
+    "main.js.map": "/static/js/main.d73a8500.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fe0391a3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fe0391a3.js.map",
+    "static/js/2.df5791d2.chunk.js": "/static/js/2.df5791d2.chunk.js",
+    "static/js/2.df5791d2.chunk.js.map": "/static/js/2.df5791d2.chunk.js.map",
+    "static/js/3.f18b5e2b.chunk.js": "/static/js/3.f18b5e2b.chunk.js",
+    "static/js/3.f18b5e2b.chunk.js.map": "/static/js/3.f18b5e2b.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.ee9db1c5.chunk.css.map": "/static/css/main.ee9db1c5.chunk.css.map",
+    "static/js/2.df5791d2.chunk.js.LICENSE.txt": "/static/js/2.df5791d2.chunk.js.LICENSE.txt",
+    "static/media/Main.css": "/static/media/tbilisi-night.11585ac5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fe0391a3.js",
+    "static/js/2.df5791d2.chunk.js",
+    "static/css/main.ee9db1c5.chunk.css",
+    "static/js/main.d73a8500.chunk.js"
+  ]
+}
