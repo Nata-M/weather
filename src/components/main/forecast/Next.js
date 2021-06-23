@@ -39,6 +39,7 @@ const Next = () => {
   twoDaysAfter.setDate(twoDaysAfter.getDate() + 1);
   const threeDaysAfter = new Date(twoDaysAfter);
   threeDaysAfter.setDate(threeDaysAfter.getDate() + 1);
+
   useEffect(() => {
     axios
       .get('https://api.openweathermap.org/data/2.5/onecall?lat=41.6941&lon=44.8337&units=metric&cnt=14&exclude=hourly,minutely&appid=fd5179b748f76ec3198fcf32fa82a64b')
@@ -47,15 +48,15 @@ const Next = () => {
         const data = res.data;
         setTemp({
           min: data.daily[0].temp.min,
-          max: res.data.daily[0].temp.max,
-          minTomorrow: res.data.daily[1].temp.min,
-          maxTomorrow: res.data.daily[1].temp.max,
-          minDayAfter: res.data.daily[2].temp.min,
-          maxDayAfter: res.data.daily[2].temp.max,
-          minTwoDays: res.data.daily[3].temp.min,
-          maxTwoDays: res.data.daily[3].temp.max,
-          minThreeDays: res.data.daily[4].temp.min,
-          maxThreeDays: res.data.daily[4].temp.max
+          max: data.daily[0].temp.max,
+          minTomorrow: data.daily[1].temp.min,
+          maxTomorrow: data.daily[1].temp.max,
+          minDayAfter: data.daily[2].temp.min,
+          maxDayAfter: data.daily[2].temp.max,
+          minTwoDays: data.daily[3].temp.min,
+          maxTwoDays: data.daily[3].temp.max,
+          minThreeDays: data.daily[4].temp.min,
+          maxThreeDays: data.daily[4].temp.max
         });
       })
       .catch(err => console.error(err));
