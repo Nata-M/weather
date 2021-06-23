@@ -9,7 +9,7 @@ const Main = () => {
 
   useEffect(() => {
     axios
-      .get('http://api.openweathermap.org/data/2.5/weather?q=Tbilisi&units=metric&appid=aa2a5fcc4cb630593c42dbf9b522de88')
+      .get('https://api.openweathermap.org/data/2.5/weather?q=Tbilisi&units=metric&appid=aa2a5fcc4cb630593c42dbf9b522de88')
       .then(res => {
         const data = res.data;
         setWeather({
