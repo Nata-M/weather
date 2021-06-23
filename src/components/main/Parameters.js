@@ -6,7 +6,7 @@ const Parameters = (props) => {
     return (
         <div className='parameters'>
             <p>{text}</p>
-            <p>{num} {icon !== null ? icon : null}</p>
+            <p>{Math.round(num)} {icon !== null ? icon : null}</p>
         </div>
     )
 }

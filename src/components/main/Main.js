@@ -5,19 +5,19 @@ import Parameters from './Parameters';
 import Next from './forecast/Next';
 
 const Main = () => {
-  const [temp, setTemp] = useState([]);
-  const [feel, setFeel] = useState([]);
-  const [humidity, setHumidity] = useState([]);
-  const [wind, setWind] = useState([]);
+  const [weather, setWeather] = useState({});
 
   useEffect(() => {
     axios
       .get('http://api.openweathermap.org/data/2.5/weather?q=Tbilisi&units=metric&appid=aa2a5fcc4cb630593c42dbf9b522de88')
       .then(res => {
-        setTemp(Math.round(res.data.main.temp));
-        setFeel(Math.round(res.data.main.feels_like));
-        setHumidity(Math.round(res.data.main.humidity));
-        setWind(Math.round(res.data.wind.speed * 3.6));
+        const data = res.data;
+        setWeather({
+          temp: Math.round(data.main.temp),
+          feel: data.main.feels_like,
+          humidity: data.main.humidity,
+          wind: data.wind.speed * 3.6
+        });
       })
       .catch(err => console.error(err));
   }, [])
@@ -29,15 +29,15 @@ const Main = () => {
           <div className='temperature'>
             <div className='index'>
               <div>
-                <h1>{temp}&#176;</h1>
+                <h1> {weather.temp} &#176;</h1>
                 <p className='clouds'>Sunny</p>
               </div>
               <div className='row'>
-                <Parameters text='RealFeel' num={feel} icon='&#176;' />
+                <Parameters text='RealFeel' num={weather.feel} icon='&#176;' />
                 <hr className='vertical-line' />
-                <Parameters text='Humidity' num={humidity} icon='%' />
+                <Parameters text='Humidity' num={weather.humidity} icon='%' />
                 <hr className='vertical-line' />
-                <Parameters text='Wind' num={wind} icon='km/h' />
+                <Parameters text='Wind' num={weather.wind} icon='km/h' />
               </div>
             </div>
             <div className="index">

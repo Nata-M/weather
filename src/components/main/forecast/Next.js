@@ -4,16 +4,7 @@ import axios from 'axios';
 import Card from './Card';
 
 const Next = () => {
-  const [minTemp, setMinTemp] = useState([]);
-  const [maxTemp, setMaxTemp] = useState([]);
-  const [minTempTom, setMinTempTom] = useState([]);
-  const [maxTempTom, setMaxTempTom] = useState([]);
-  const [minTempDayAfter, setMinTempDayAfter] = useState([]);
-  const [maxTempDayAfter, setMaxTempDayAfter] = useState([]);
-  const [minTempTwoDays, setMinTempTwoDays] = useState([]);
-  const [maxTempTwoDays, setMaxTempTwoDays] = useState([]);
-  const [minTempThreeDays, setMinTempThreeDays] = useState([]);
-  const [maxTempThreeDays, setMaxTempThreeDays] = useState([]);
+  const [temp, setTemp] = useState({})
 
   const weekdays = [
     'Sunday',
@@ -53,16 +44,19 @@ const Next = () => {
       .get('https://api.openweathermap.org/data/2.5/onecall?lat=41.6941&lon=44.8337&units=metric&cnt=14&exclude=hourly,minutely&appid=fd5179b748f76ec3198fcf32fa82a64b')
       .then(res => {
         console.log(res.data);
-        setMinTemp(Math.floor(res.data.daily[0].temp.min));
-        setMaxTemp(Math.floor(res.data.daily[0].temp.max));
-        setMinTempTom(Math.floor(res.data.daily[1].temp.min));
-        setMaxTempTom(Math.floor(res.data.daily[1].temp.max));
-        setMinTempDayAfter(Math.floor(res.data.daily[2].temp.min));
-        setMaxTempDayAfter(Math.floor(res.data.daily[2].temp.max));
-        setMinTempTwoDays(Math.floor(res.data.daily[3].temp.min));
-        setMaxTempTwoDays(Math.floor(res.data.daily[3].temp.max));
-        setMinTempThreeDays(Math.floor(res.data.daily[4].temp.min));
-        setMaxTempThreeDays(Math.floor(res.data.daily[4].temp.max))
+        const data = res.data;
+        setTemp({
+          min: data.daily[0].temp.min,
+          max: res.data.daily[0].temp.max,
+          minTomorrow: res.data.daily[1].temp.min,
+          maxTomorrow: res.data.daily[1].temp.max,
+          minDayAfter: res.data.daily[2].temp.min,
+          maxDayAfter: res.data.daily[2].temp.max,
+          minTwoDays: res.data.daily[3].temp.min,
+          maxTwoDays: res.data.daily[3].temp.max,
+          minThreeDays: res.data.daily[4].temp.min,
+          maxThreeDays: res.data.daily[4].temp.max
+        });
       })
       .catch(err => console.error(err));
   }, [])
@@ -73,40 +67,40 @@ const Next = () => {
         <Card day={weekdays[day]}
           date={today.getDate() + ' ' + months[today.getMonth()]}
           img='/transparent-weather-4.png'
-          min={minTemp}
-          max={maxTemp} />
+          min={temp.min}
+          max={temp.max} />
       </div>
       <div className='weather-card'>
         <Card day={weekdays[tomorrow.getDay()]}
           date={tomorrow.getDate()
             + ' ' + months[tomorrow.getMonth()]}
           img='/unnamed.png'
-          min={minTempTom}
-          max={maxTempTom}
+          min={temp.minTomorrow}
+          max={temp.maxTomorrow}
         />
       </div>
       <div className='weather-card'>
         <Card day={weekdays[dayAfter.getDay()]} text={tomorrow}
           date={dayAfter.getDate() + ' ' + months[dayAfter.getMonth()]}
           img='/rain.png'
-          min={minTempDayAfter}
-          max={maxTempDayAfter}
+          min={temp.minDayAfter}
+          max={temp.maxDayAfter}
         />
       </div>
       <div className='weather-card'>
         <Card day={weekdays[twoDaysAfter.getDay()]} text={tomorrow}
           date={twoDaysAfter.getDate() + ' ' + months[twoDaysAfter.getMonth()]}
           img='/rain.png'
-          min={minTempTwoDays}
-          max={maxTempTwoDays}
+          min={temp.minTwoDays}
+          max={temp.maxTwoDays}
         />
       </div>
       <div className='weather-card'>
         <Card day={weekdays[threeDaysAfter.getDay()]} text={tomorrow}
           date={threeDaysAfter.getDate() + ' ' + months[threeDaysAfter.getMonth()]}
           img='/transparent-weather-4.png'
-          min={minTempThreeDays}
-          max={maxTempThreeDays}
+          min={temp.minThreeDays}
+          max={temp.maxThreeDays}
         />
       </div>
     </div>
