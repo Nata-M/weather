@@ -33,7 +33,7 @@ const Main = () => {
                 <p className='clouds'>Sunny</p>
               </div>
               <div className='row'>
-                <Parameters text='RealFeel' num={weather.feel} icon='&#176;' />
+                <Parameters text='Real-Feel' num={weather.feel} icon='&#176;' />
                 <hr className='vertical-line' />
                 <Parameters text='Humidity' num={weather.humidity} icon='%' />
                 <hr className='vertical-line' />
