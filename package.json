@@ -1,6 +1,6 @@
 {
   "name": "weather-app",
-  "homepage": "https://nata-m.github.io/weather",
+  "homepage": "https://nata-m.github.io/weather/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
