@@ -1,13 +1,11 @@
 body {
   margin: 0;
-  font-family: "Eina03-SemiBold";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-@import url(//db.onlinewebfonts.com/c/b158925a1d762313849f2482a415369d?family=Eina03);
-@import url(//db.onlinewebfonts.com/c/b158925a1d762313849f2482a415369d?family=Eina03-SemiBold);
