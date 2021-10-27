@@ -4,7 +4,6 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(#e778bf, #9e6bdb, #6d62ed)
 }
 .flex {
     display: flex;
@@ -124,12 +123,12 @@ margin: 0;
 @media only screen and (max-width: 740px) {
     .main-container {
         height: auto;
-        background-color: red;
     }
     .weather-container {
         width: 90%;
         min-width: 300px;
         margin-top: 20px;
+        margin-bottom: 30px;
     }
     .background {
         height: auto;

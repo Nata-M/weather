@@ -3,6 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Fira Sans', sans-serif;
+  background: linear-gradient(#e778bf, #9e6bdb, #6d62ed);
 }
 
 code {
